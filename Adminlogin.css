@@ -1,0 +1,48 @@
+form{
+    margin-top:100px;
+    font-family:cambria;
+    border:1px solid white;
+    width:250px;
+    height:230px;
+    background-color: lightgray;
+    
+}
+hr{
+    width:200px;
+}
+input{
+    width:200px;
+    height:25px;
+
+}
+button{
+    color:white;
+    background-color:red;
+    border:0px solid white;
+    width:200px;
+    height:25px;
+    margin-left:1120px;
+
+}
+button:hover{
+    background-color: rgb(143, 27, 27);
+   
+}
+h2{
+    color:red;
+    display: inline-block;
+
+}
+h3{
+     display: inline-block;
+
+}
+.back{
+    
+    color:white;
+    background-color:red;
+    border:0px solid white;
+     width:200px;
+    height:25px;
+    margin-left:1120px;
+}

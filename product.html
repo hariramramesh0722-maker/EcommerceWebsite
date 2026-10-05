@@ -1,0 +1,20 @@
+<form action="add_product.php" method="POST">
+
+<input type="text" name="name" placeholder="Product Name"><br>
+<input type="text" name="image" placeholder="Image name"><br>
+<input type="text" name="page" placeholder="Product page"><br>
+
+<button type="submit">Add Product</button>
+
+while($row = mysqli_fetch_assoc($result)) {
+?>
+<div class="imgcard">
+    <h4><?php echo $row['product_name']; ?></h4>
+    <hr>
+    <img src="uploads/<?php echo $row['image']; ?>" alt="Product Image">
+    <p>₹<?php echo $row['price']; ?></p>
+    <button class="card1">Add to Cart</button>
+    <button class="card2">Buy Now</button>
+</div>
+<?php } ?>
+</form>

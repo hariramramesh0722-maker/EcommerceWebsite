@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Form</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h2 {
+            display: inline-block;
+            color: red;
+        }
+
+        h3 {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+        }
+
+        select {
+            width: 250px;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        input {
+            margin-top: 10px;
+        }
+
+        button {
+            width: 250px;
+            height: 35px;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>E</h2>
+        <h3>lectroZone.in</h3>
+
+        <form action="insert_review.php" method="POST" enctype="multipart/form-data">
+
+            <select name="productname">
+                <option value="Laptop">Laptop</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Hard disk">Hard disk</option>
+                <option value="SSD">SSD</option>
+                <option value="Pendrive">Pendrive</option>
+                <option value="CPU">CPU</option>
+
+            </select>
+
+            <br><br>
+
+            <input type="file" name="video" required>
+
+            <br><br>
+            <select name="rating">
+              
+                    <option value="">Select Rating</option>
+                    <option value="1.0">1.0</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3.0">3.0</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4.0">4.0</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5.0">5.0</option>
+                </select>
+
+       
+            <br><br>
+
+            <button type="submit">
+                Submit
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+body{
+    font-family:cambria;
+}
+form{
+    margin-top:150px;
+}
+.val{
+    background-color: lightgray;
+    
+    height:400px;
+    border:1px solid white;
+}
+input{
+    width:255px;
+    height:35px;
+    
+    border:1px solid gray;
+}
+button{
+    width:255px;
+    height:35px;
+    background-color: red;
+    color:white;
+    border:white 0px;
+}
+h2{
+    color:red;
+    display:inline-block;
+}
+h3{
+display:inline-block;
+}
+select{
+    width:255px;
+    height:38px;
+}
+textarea{
+    width:255px;
+}

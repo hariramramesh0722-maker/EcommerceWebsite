@@ -1,0 +1,51 @@
+.image{
+    width:300px;
+    height:300px;
+    border:1px solid white outset;
+    display:inline-block;
+    margin-top:30px;
+    border-width:200px;
+    background-color:lightgray;
+    border:10px black;
+
+}
+
+.back{
+    background-color:lightgray;
+    width:300px;
+    height:200px;
+    border:1px solid outset;
+}
+.card{
+    
+    width:1000px;
+    height:230px;
+    border-radius:30px;
+    border:2px solid red ;
+    text-align:center;
+    display:inline-block;
+    
+    margin-top:20px;
+}
+.quantity{
+    height:30px;
+    width:200px
+}
+.order{
+    width:350px;
+    height:30px;
+    color:white;
+    background-color: red;
+    border-radius:3px;
+    border:0px white solid;
+}
+.order:hover{
+    background-color:rgb(247, 10, 10);
+}
+h2{
+    color:red;
+    display:inline-block;
+}
+h3{
+    display:inline-block;
+}

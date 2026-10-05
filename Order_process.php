@@ -1,0 +1,194 @@
+<?php
+session_start();
+
+$conn = mysqli_connect("localhost", "root", "", "project");
+
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+/* Get product ID */
+if (!isset($_GET['id'])) {
+    die("Product ID missing");
+}
+
+$id = intval($_GET['id']);
+
+/* Get product */
+$product_query = "SELECT * FROM product WHERE id=$id";
+$product_result = mysqli_query($conn, $product_query);
+$product = mysqli_fetch_assoc($product_result);
+
+/* Get logged-in username */
+$username = $_SESSION['username'] ?? '';
+
+/* Get user details */
+$user_query = "SELECT * FROM signup WHERE username='$username'";
+$user_result = mysqli_query($conn, $user_query);
+$user = mysqli_fetch_assoc($user_result);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Product</title>
+
+<style>
+
+body{
+font-family:Arial;
+}
+
+.product-box{
+width:420px;
+border:1px solid lightgray;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+.image{
+width:400px;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+}
+
+input{
+width:300px;
+height:30px;
+padding:6px;
+}
+
+button{
+width:200px;
+height:40px;
+color:white;
+background-color:red;
+border:none;
+cursor:pointer;
+border-radius:6px;
+}
+
+form{
+background-color:#eee;
+width:450px;
+padding:20px;
+border-radius:10px;
+border-radius: 30px;
+box-shadow: 10px;
+}
+
+h2{
+color:red;
+display:inline-block;
+}
+
+h3{
+display:inline-block;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>E</h2>
+<h3>lectroZone.in</h3>
+
+<center>
+
+<!-- Product Display -->
+
+<div class="product-box">
+
+<p>Your Product</p>
+
+<img class="image" src="uploads/<?php echo $product['image']; ?>">
+
+<h3><?php echo $product['product_name']; ?></h3>
+
+<p><?php echo $product['details']; ?></p>
+
+<b>Price: ₹<?php echo $product['price']; ?></b>
+
+</div>
+
+<!-- Order Form -->
+
+<h2>ElectroZone Order</h2>
+
+<form action="send_order.php" method="POST">
+
+<br>
+
+<!-- Hidden product details -->
+
+
+<input type="hidden" name="product_name" value="<?php echo $product['product_name']; ?>">
+
+<input type="hidden" name="price" value="<?php echo $product['price']; ?>">
+
+<input type="hidden" name="details" value="<?php echo $product['details']; ?>">
+
+<input type="hidden" name="delivery" value="Standard Delivery">
+
+
+
+<!-- User Details -->
+<p>If You want change any details please alter it</p>
+<input type="text"
+name="username"
+placeholder="Your username"
+value="<?php echo $user['username'] ?? ''; ?>"
+required>
+<br><br>
+
+<input type="email"
+name="email"
+placeholder="Your Email"
+value="<?php echo $user['email'] ?? ''; ?>"
+required>
+
+<br><br>
+
+<input type="tel"
+name="mobile"
+placeholder="Your Mobile"
+value="<?php echo $user['mobile'] ?? ''; ?>"
+pattern="[0-9+]{7,15}"
+required>
+
+<br><br>
+
+<input type="text"
+name="address"
+placeholder="Delivery Address"
+value="<?php echo $user['address'] ?? ''; ?>"
+required>
+
+<br><br>
+<input type="Number" name="quantity" placeholder="No.Of.Quantity">
+<br><br>
+
+<input type="text"
+name="district"
+value="Tenkasi District Only"
+required>
+
+<br><br>
+
+<button type="submit">Order Now</button>
+
+</form>
+
+</center>
+
+</body>
+</html>
